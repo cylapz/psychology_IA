@@ -104,7 +104,8 @@ function timer_start() {
 answers = [];
 correct = [];
 q = 0
-c = 0
+cl = 0
+ct = 0
 trial = 0
 
 function step(timestamp) {
@@ -129,6 +130,7 @@ function animation(mode) {
   if (mode != 0)
     requestAnimationFrame(step);
 
+  dct = 1;
   interval = setInterval(() => {
     if (stop == 7) {
       clearInterval(interval)
@@ -157,16 +159,21 @@ function animation(mode) {
           animation(3)
         }, 5000);
       } else if (mode == 2) {
+        ct += dct;
         inputs.children[stop - 1].style.background = "#ebdbb2";
-        if (trial == 10) {
+        if (trial == 1) {
           letters.style.visibility = "hidden"
           submit.style.visibility = "hidden"
           letters.style.visibility = "hidden";
           result.style.visibility = "hidden";
           for (j = 0; j < 7; j++)
           inputs.children[j].style.visibility = "hidden";
-          result.innerHTML = "Recall rate: " + c + "/" + q + " = " + Math.round(c / q * 100) + "%";
+          //result.innerHTML =  "letter recall rate: " + cl + "/" + q + " = " + Math.round(cl / q * 100) + "%" + "<br>";
+          //result.innerHTML += "trial recall rate: " + ct + "/" + (q / 7) + " = " + Math.round(ct / (q / 7) * 100) + "%\n";
+          result.innerHTML =  "letters recalled: " + cl + "<br>";
+          result.innerHTML += "trials recalled: " + ct;
           result.style.visibility = "visible";
+          progress.style.visibility = "hidden";
         } else {
           timertime = 5000 - 350;
           timer_start();
@@ -185,9 +192,10 @@ function animation(mode) {
       if (mode == 2) {
         q += 1;
         if (answers[stop] == correct[stop]) {
-          c += 1
+          cl += 1;
           inputs.children[stop].style.background = "#98971a";
         } else {
+          dct = 0;
           inputs.children[stop].style.background = "#cc241d";
         }
         inputs.children[stop].value = ''
@@ -235,7 +243,7 @@ window.onload = () => {
 
     animation(2);
 
-    if (trial < 10) {
+    if (trial < 1) {
       setTimeout(() => {
         progress.innerHTML = trial + 1 + "/10"
         animation(1)
