@@ -1,0 +1,188 @@
+:root {
+  --bg1: #fbf1c7;
+  --bg2: #ebdbb2;
+  --bg3: #d5c4a1;
+  --fg1: #076678;
+  --text: #3c3836;
+}
+
+::selection {
+  color: var(--text);
+  background: var(--bg2);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+
+  display: flex;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--bg1);
+
+  font-size: 16px;
+
+  height: 100%;
+}
+
+.container {
+  padding: 40px;
+  border-radius: 0px;
+
+  display: grid;
+  place-items: center;
+
+  box-shadow: 10px 10px 0px 0px var(--fg1);
+  border: 3px;
+  border-style: groove;
+  border-color: var(--fg1);
+}
+
+#interface {
+  visibility: hidden;
+  grid-template-columns: 3;
+  display: grid;
+  place-items: center;
+}
+
+#start {
+  border: 1px solid var(--bg3);
+  position: absolute;
+
+  place-self: center;
+  width: 100px;
+  height: 40px;
+
+  background: var(--bg2);
+  color: var(--text);
+  font-size: 25px;
+}
+
+#start:hover {
+  border: 3px solid var(--fg1);
+}
+
+#letters {
+  background: var(--bg2);
+  padding: 3px;
+  border: 1px solid var(--bg3);
+  margin: 4px;
+  place-self: center;
+  visibility: hidden;
+  color: var(--text);
+}
+
+#input {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  user-select: none;
+}
+
+.input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+  font-size: 36px;
+
+  border:  1px solid var(--bg3);
+  padding: 2px;
+
+  cursor: pointer;
+  caret-color: transparent;
+
+  background: var(--bg2);
+  color: var(--text);
+
+  user-select: none;
+}
+
+.input:disabled {
+  background: var(--bg2);
+}
+
+.input:focus {
+  border: 3px solid var(--fg1);
+  padding: 0px;
+  outline: none;
+
+  user-select: none;
+}
+
+#submit {
+  border: 1px solid var(--bg3);
+  font-size: 25px;
+  margin-top: 40px;
+  height: 40px;
+  width: 100px;
+
+  background-color: var(--bg2);
+  color: var(--text);
+
+  place-self: center;
+  text-align: center;
+  justify-content: center;
+
+  grid-column: 1;
+  grid-row: 3;
+}
+
+#submit:focus {
+  border: 3px solid var(--fg1);
+  outline: none;
+}
+
+#submit:hover {
+  border: 3px solid var(--fg1);
+}
+
+#timerbg {
+  border: 1px solid var(--bg3);
+  margin-top: 40px;
+  grid-column: 1;
+  grid-row: 3;
+  width: 100px;
+  height: 40px;
+
+  visibility: hidden;
+  background: var(--bg2);
+}
+
+#timer {
+  width: 0px;
+  height: 40px;
+  background: var(--fg1);
+}
+
+#result {
+  border: 1px solid var(--bg3);
+  position: absolute;
+
+  place-self: center;
+
+  background: var(--bg2);
+  color: var(--text);
+  font-size: 25px;
+  padding: 3px;
+}
+
+#progress {
+  border: 1px solid var(--bg3);
+  position: absolute;
+
+  place-self: end;
+
+  background: var(--bg2);
+  color: var(--text);
+  font-size: 16px;
+  padding: 3px;
+}
