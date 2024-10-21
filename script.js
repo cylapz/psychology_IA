@@ -158,7 +158,7 @@ function animation(mode) {
         }, 5000);
       } else if (mode == 2) {
         inputs.children[stop - 1].style.background = "#ebdbb2";
-        if (trial == 2) {
+        if (trial == 10) {
           letters.style.visibility = "hidden"
           submit.style.visibility = "hidden"
           letters.style.visibility = "hidden";
@@ -235,7 +235,7 @@ window.onload = () => {
 
     animation(2);
 
-    if (trial < 2) {
+    if (trial < 10) {
       setTimeout(() => {
         progress.innerHTML = trial + 1 + "/10"
         animation(1)
